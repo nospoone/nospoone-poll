@@ -1,0 +1,12 @@
+Dashboard:
+	☐ Fix chat annouce checkbox label @critical @0.1.0
+	☐ Poll running UI @critical @0.1.0
+
+Extension:
+	☐ Handle timed polls @critical @0.1.0
+	☐ Handle chat config errors @low
+	☐ Refactor everything into a single file (or find a way to dissect stuff correctly) @high
+
+Chores:
+	☐ Add XO & post-commit hook @low
+	☐ Write README.md @low

@@ -1,0 +1,31 @@
+{
+  "name": "nospoone-poll",
+  "description": "Handles chat polls, for both open and closed questions.",
+  "main": "",
+  "authors": [
+    "[object Object]"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "poll",
+    "nodecg-bundle"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-button": "^2.0.0",
+    "paper-dropdown-menu": "^2.0.0",
+    "paper-item": "^2.0.0",
+    "paper-input": "^2.0.1",
+    "paper-listbox": "^2.0.0",
+    "paper-progress": "^2.0.1",
+    "paper-toggle-button": "^2.0.0"
+  }
+}

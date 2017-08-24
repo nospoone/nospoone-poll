@@ -1,0 +1,54 @@
+{
+  "name": "nospoone-poll",
+  "version": "0.0.1",
+  "description": "Handles chat polls, for both open and closed questions.",
+  "homepage": "",
+  "author": {
+    "name": "Roméo Jr. Labonté",
+    "email": "romeo@q-bit.ca",
+    "url": "https://www.twitter.com/nospoone"
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension"
+  ],
+  "keywords": [
+    "poll",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "~0.8.0",
+    "dashboardPanels": [
+      {
+        "name": "neat-poll",
+        "title": "Neat Poll",
+        "width": 3,
+        "file": "neat-poll.html",
+        "headerColor": "#80398e"
+      }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "node-localstorage": "^1.3.0",
+    "tmi.js": "^1.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-less": "^3.3.0",
+    "gulp-pug": "^3.2.0",
+    "gulp-util": "^3.0.8",
+    "pump": "^1.0.2",
+    "xo": "^0.17.1"
+  },
+  "xo": {
+    "globals": [
+      "document",
+      "nodecg"
+    ]
+  }
+}

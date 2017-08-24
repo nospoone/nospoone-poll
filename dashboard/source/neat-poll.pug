@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		link(rel="import", href="components/paper-button/paper-button.html")
+		link(rel="import", href="components/paper-input/paper-input.html")
+		link(rel="import", href="components/paper-progress/paper-progress.html")
+		link(rel="import", href="components/paper-toggle-button/paper-toggle-button.html")
+		link(rel="stylesheet", href="assets/css/neat-poll.css")
+	body
+		paper-input(always-float-label, label="Question")#question
+		.answers
+			paper-input(always-float-label, label="Answer A")#a
+			paper-input(always-float-label, label="Answer B")#b
+			paper-input(always-float-label, label="Answer C")#c
+			paper-input(always-float-label, label="Answer D")#d
+		paper-input(always-float-label, label="Expires in... (empty or 0 for no expiry)")#expires
+		.toggle
+			paper-toggle-button#announce
+			label Announce in chat?
+		.buttons
+			paper-button#start.nodecg-success(raised) Start Poll
+			paper-button#stop.nodecg-danger(raised) Stop Poll
+		script(src="assets/js/neat-poll.js")
