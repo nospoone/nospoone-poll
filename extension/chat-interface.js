@@ -59,6 +59,10 @@ module.exports = function (nodecg) {
 	});
 
 	poll.on('change', (newValue, oldValue) => {
+		if (oldValue === undefined) return;
+		console.log(newValue);
+		console.log(nodecg.readReplicant('announce'));
+
 		// Announce in chat if needed
 		if (nodecg.readReplicant('announce')) {
 			if (newValue.active && !oldValue.active) {

@@ -26,7 +26,6 @@
 			});
 			pollValue.answerCount = answerCount;
 			currentPoll.value = pollValue;
-			console.log('huh');
 		});
 	});
 
