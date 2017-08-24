@@ -105,7 +105,7 @@ module.exports = function (nodecg) {
 		});
 
 		for (var i = 0; i < pollValues.answerCount.length; i++) {
-			pollValues.answerPercentages[i] = Number((pollValues.answerCount[i] / pollValues.totalAnswers).toFixed(2)) * 100;
+			pollValues.answerPercentages[i] = Number(((pollValues.answerCount[i] / pollValues.totalAnswers) * 100).toFixed(1));
 		}
 
 		pollValues.participants.push(participant);
