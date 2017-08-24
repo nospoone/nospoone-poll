@@ -51,8 +51,8 @@ module.exports = function (nodecg) {
 	client.on('chat', (channel, user, message) => {
 		if (poll.value.active && message.startsWith('!poll ')) {
 			const answerIndex = indexToLetter.indexOf(message.substring(6).toUpperCase().trim());
-			if (answerIndex !== -1 && nodecg.readReplicant('poll').answers[parseInt(answerIndex, 10)] !== undefined) {
-				addAnswer(parseInt(answerIndex, 10));
+			if (answerIndex !== -1 && nodecg.readReplicant('poll').answers[parseInt(answerIndex, 10)] !== undefined && nodecg.readReplicant('poll').participants.indexOf(user.username) === -1) {
+				addAnswer(parseInt(answerIndex, 10), user.username);
 				self.emit('answer', parseInt(answerIndex, 10));
 				nodecg.log.info(`[${channel}] ${user['display-name']} answered the poll: ${poll.value.answers[parseInt(answerIndex, 10)]} (${message.substring(6).toUpperCase().trim()})`);
 			}
@@ -90,7 +90,7 @@ module.exports = function (nodecg) {
 		poll.value.active = false;
 	}
 
-	function addAnswer(answerIndex) {
+	function addAnswer(answerIndex, participant) {
 		const pollValues = nodecg.readReplicant('poll');
 
 		pollValues.answerCount[answerIndex]++;
@@ -107,6 +107,8 @@ module.exports = function (nodecg) {
 		for (var i = 0; i < pollValues.answerCount.length; i++) {
 			pollValues.answerPercentages[i] = Number((pollValues.answerCount[i] / pollValues.totalAnswers).toFixed(2)) * 100;
 		}
+
+		pollValues.participants.push(participant);
 
 		poll.value = pollValues;
 	}

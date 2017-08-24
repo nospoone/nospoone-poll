@@ -24,6 +24,7 @@
 			pollValue.duration = (!isNaN(document.getElementById('expires').value) && parseInt(document.getElementById('expires').value, 10) > 0) ? parseInt(document.getElementById('expires').value, 10) * 1000 * 60 : -1;
 			pollValue.question = document.getElementById('question').value;
 			pollValue.answers = [document.getElementById('a').value, document.getElementById('b').value, document.getElementById('c').value, document.getElementById('d').value].filter(answer => answer !== undefined && answer.length > 0);
+			pollValue.participants = [];
 			let answerCount = [];
 			pollValue.answers.forEach(() => {
 				answerCount.push(0);
