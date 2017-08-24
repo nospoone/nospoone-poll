@@ -26,6 +26,7 @@
     "paper-input": "^2.0.1",
     "paper-listbox": "^2.0.0",
     "paper-progress": "^2.0.1",
-    "paper-toggle-button": "^2.0.0"
+    "paper-toggle-button": "^2.0.0",
+    "moment": "^2.18.1"
   }
 }

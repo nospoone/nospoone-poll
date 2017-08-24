@@ -1,11 +1,13 @@
 Dashboard:
 	✔ Fix chat annouce checkbox label @critical @0.1.0 @done (17-08-23 20:33)
-	☐ Poll running UI @critical @0.1.0
+	✔ Poll running UI @critical @0.1.0 @done (17-08-24 03:04)
 
 Extension:
-	☐ Handle timed polls @critical @0.1.0
-	☐ Handle chat config errors @low
-	☐ Refactor everything into a single file (or find a way to dissect stuff correctly) @high
+	✔ Handle timed polls @critical @0.1.0 @done (17-08-24 00:51)
+	☐ Handle chat config errors @low @0.1.0
+	☐ Refactor everything into a single file (or find a way to dissect stuff correctly) @high @0.1.0
+	☐ Handle polls without answers @high @0.1.0
+	☐ Reject duplicate votes @critical @0.1.0
 
 Chores:
 	☐ Add XO & post-commit hook @low

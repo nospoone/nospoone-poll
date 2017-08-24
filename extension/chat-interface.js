@@ -19,6 +19,7 @@ const tmi = require('tmi.js');
 
 // Fields
 const indexToLetter = 'ABCD';
+let activePollTimeout;
 
 module.exports = function (nodecg) {
 	if (!nodecg.bundleConfig || !Object.keys(nodecg.bundleConfig).length > 0) {
@@ -59,19 +60,35 @@ module.exports = function (nodecg) {
 	});
 
 	poll.on('change', (newValue, oldValue) => {
-		if (oldValue === undefined) return;
-		console.log(newValue);
-		console.log(nodecg.readReplicant('announce'));
+		if (oldValue === undefined) {
+			return;
+		}
+
+		if (activePollTimeout !== undefined) {
+			clearTimeout(activePollTimeout);
+		}
+
+		if (newValue.duration !== -1) {
+			setTimeout(closePoll, newValue.duration);
+		}
 
 		// Announce in chat if needed
 		if (nodecg.readReplicant('announce')) {
 			if (newValue.active && !oldValue.active) {
 				client.say(nodecg.bundleConfig.channel, `Poll time! The question is: ${newValue.question}.`);
 			} else if (!newValue.active && oldValue.active) {
-				client.say(nodecg.bundleConfig.channel, `Poll over! The winner is answer ${indexToLetter[newValue.winner]} with ${newValue.answerPercentages[newValue.winner] * 100}% of the votes!`);
+				client.say(nodecg.bundleConfig.channel, `Poll over! The winner is answer ${indexToLetter[newValue.winner]} with ${newValue.answerPercentages[newValue.winner]}% of the votes!`);
 			}
 		}
 	});
+
+	function closePoll() {
+		if (activePollTimeout !== undefined) {
+			clearTimeout(activePollTimeout);
+		}
+
+		poll.value.active = false;
+	}
 
 	function addAnswer(answerIndex) {
 		const pollValues = nodecg.readReplicant('poll');
@@ -88,7 +105,7 @@ module.exports = function (nodecg) {
 		});
 
 		for (var i = 0; i < pollValues.answerCount.length; i++) {
-			pollValues.answerPercentages[i] = Number((pollValues.answerCount[i] / pollValues.totalAnswers).toFixed(2));
+			pollValues.answerPercentages[i] = Number((pollValues.answerCount[i] / pollValues.totalAnswers).toFixed(2)) * 100;
 		}
 
 		poll.value = pollValues;

@@ -26,6 +26,13 @@
         "width": 3,
         "file": "neat-poll.html",
         "headerColor": "#80398e"
+      },
+      {
+        "name": "neat-poll-results",
+        "title": "Neat Poll Results",
+        "width": 3,
+        "file": "neat-poll-results.html",
+        "headerColor": "#80398e"
       }
     ]
   },

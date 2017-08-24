@@ -1,4 +1,4 @@
-paper-button#show {
+paper-button {
 	margin: 10px 10px 0 0;
 }
 
@@ -11,9 +11,57 @@ paper-button#show {
 }
 
 .toggle {
-	margin: 10px 0 18px;
+	margin: 10px 0 5px;
 	display: flex;
 	label {
 		padding-top: 2px;
+	}
+}
+
+label.expires {
+	display: block;
+	margin-top: 12px;
+	font-style: italic;
+	span {
+		display: inline-block;
+		padding-left: 3px;
+	}
+}
+
+.progress {
+	span.header {
+		font-size: 18px;
+		font-weight: bold;
+		display: block;
+		margin-bottom: 15px;
+	}
+	label {
+		display: block;
+		margin-bottom: 5px;
+		font-style: italic;
+	}
+	paper-progress {
+		width: 100%;
+		margin-bottom: 12px;
+		&.red {
+			--paper-progress-active-color: var(--paper-red-500);
+		}
+		&.green {
+			--paper-progress-active-color: var(--paper-green-500);
+		}
+		&.blue {
+			--paper-progress-active-color: var(--paper-blue-500);
+		}
+		&.orange {
+			--paper-progress-active-color: var(--paper-orange-500);
+		}
+	}
+	.buttons {
+		display: flex;
+		flex-direction: row;
+		label {
+			margin-top: 10px;
+			line-height: 41px;
+		}
 	}
 }
