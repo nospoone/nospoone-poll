@@ -26,8 +26,10 @@
 			pollValue.answers = [document.getElementById('a').value, document.getElementById('b').value, document.getElementById('c').value, document.getElementById('d').value].filter(answer => answer !== undefined && answer.length > 0);
 			pollValue.participants = [];
 			let answerCount = [];
+			let answerPercentages = [];
 			pollValue.answers.forEach(() => {
 				answerCount.push(0);
+				answerPercentages.push(0);
 			});
 			pollValue.answerCount = answerCount;
 			pollValue.totalAnswers = 0;
